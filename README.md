@@ -1,4 +1,3 @@
 ## Triposo Travel Tree
 
-npm install
-npm start
+npm install & npm start

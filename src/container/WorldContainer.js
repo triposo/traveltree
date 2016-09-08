@@ -6,6 +6,8 @@ import {calculateSize} from '../utils/design.js';
 
 export default class WorldContainer extends React.Component {
 
+  disposer = null
+
   static contextTypes = {
     router: React.PropTypes.object.isRequired,
   }
@@ -20,9 +22,13 @@ export default class WorldContainer extends React.Component {
 
   selectTile = (id) => {
     this.setState({selectedTileId: id});
-    setTimeout(() => {
+    this.disposer = setTimeout(() => {
       this.context.router.push(id);
     }, 500)
+  }
+
+  componentWillUnmount() {
+    if (this.disposer) clearTimeout(this.disposer)
   }
 
   componentDidMount() {

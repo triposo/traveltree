@@ -15,9 +15,11 @@ export default class Loader extends React.Component {
   }
 
   componentDidMount() {
-    this.disposer = setTimeout(() => {
-      this.setState({show: this.props.show});
-    }, 10);
+    this.setState({show: this.props.show});
+  }
+
+  componentWillUnmount() {
+    if (this.disposer) clearTimeout(this.disposer)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,17 +28,13 @@ export default class Loader extends React.Component {
       this.setState({show: false})
       this.disposer = setTimeout(() => {
         this.setState({disable: true})
-      }, 3000)
+      }, 300)
     } else {
       this.setState({disable: false})
       this.disposer = setTimeout(() => {
         this.setState({show: true})
-      }, 3000)
+      }, 300)
     }
-  }
-
-  componentWillUnmount() {
-    if (this.disposer) clearInterval(this.disposer);
   }
 
   render() {

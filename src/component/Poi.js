@@ -39,8 +39,6 @@ export default class Poi extends React.Component {
 
 class PoiBody extends React.Component {
 
-  disposer = null
-
   constructor(props) {
     super(props)
     this.state = {
@@ -50,10 +48,6 @@ class PoiBody extends React.Component {
 
   componentDidMount() {
     this.setState({shown: true})
-  }
-
-  componentWillUnmount() {
-    if (this.disposer) clearInterval(this.disposer)
   }
 
   render() {

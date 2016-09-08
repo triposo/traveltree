@@ -67,6 +67,8 @@ export default class ActivityContainer extends React.Component {
     }
   }
 
+  
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.params.poiId) {
       this.showPoi(nextProps.params.poiId);

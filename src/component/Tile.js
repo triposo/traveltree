@@ -5,6 +5,8 @@ const colorScale = ["#2eac6d", "#3fb97c", "#9dda52", "#dad852", "#daaf52", "#da8
 
 export default class Tile extends React.Component {
 
+  disposer = null
+
   constructor(props) {
     super(props)
     this.state = {
@@ -13,9 +15,13 @@ export default class Tile extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
+    this.disposer = setTimeout(() => {
       this.setState({show: true})
     }, this.props.rank * 60)
+  }
+
+  componentWillUnmount() {
+    if (this.disposer) clearTimeout(this.disposer)
   }
 
   pickColor(scale) {

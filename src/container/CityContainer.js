@@ -10,6 +10,8 @@ export default class CountryContainer extends React.Component {
     router: React.PropTypes.object.isRequired,
   }
 
+  disposer = null
+
   constructor(props) {
     super(props)
     this.state = {
@@ -22,9 +24,13 @@ export default class CountryContainer extends React.Component {
 
   selectTile = (id) => {
     this.setState({selectedTileId: id});
-    setTimeout(() => {
+    this.disposer = setTimeout(() => {
       this.context.router.push(`/${this.props.params.countryId}/${this.props.params.cityId}/${id}`);
     }, 500)
+  }
+
+  componentWillUnmount() {
+    if (this.disposer) clearTimeout(this.disposer)
   }
 
   componentDidMount() {

@@ -6,6 +6,8 @@ import '../style/portal.css';
 
 export default class Portal extends React.Component {
 
+  disposer = null
+
   componentDidMount() {
     this.renderPortal();
   }
@@ -44,6 +46,8 @@ export default class Portal extends React.Component {
     document.body.removeChild(this.portal);
     document.body.className = ""
     this.portal = null;
+
+    if (this.disposer) clearTimeout(this.disposer)
   }
 
 
@@ -64,7 +68,7 @@ export default class Portal extends React.Component {
 
     document.body.className = "noscroll"
 
-    setTimeout(() => {
+    this.disposer = setTimeout(() => {
       this.portal.className = "portal shown"
     }, 10)
   }
