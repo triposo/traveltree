@@ -1,0 +1,15 @@
+.article {
+
+}
+
+.article img {
+  min-width: 100%;
+}
+
+.article p {
+  line-height: 1.4em;
+}
+
+.article a {
+  color: #2eac6d;
+}

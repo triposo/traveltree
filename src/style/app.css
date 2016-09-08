@@ -1,0 +1,86 @@
+.app {
+  background-color: #1c201e;
+}
+
+.tile-list {
+
+}
+
+.tile {
+  padding: 16px 0 0 16px;
+  color: #fff;
+  float: left;
+  text-decoration: none;
+  opacity: 0;
+}
+
+.tile.show {
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+.tile h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.tile:hover {
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.2);
+  animation: tile-animation 200ms ease 0ms 1 forwards;
+}
+
+.tile.selected {
+  opacity: 0;
+  transition: opacity 200ms ease 300ms;
+}
+
+.tile.unselected {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.size-1 {  width: 50%;      height: 300px;}
+.size-2 {  width: 25%;      height: 300px;}
+.size-3 {  width: 33.33%;   height: 200px;}
+.size-4 {  width: 25%;      height: 200px;}
+.size-5 {  width: 20%;      height: 100px;}
+.size-6 {  width: 16.667%;  height: 100px;}
+
+.size-1 h2 { font-size: 42px; }
+.size-2 h2 { font-size: 36px; }
+.size-3 h2 { font-size: 30px; }
+.size-4 h2 { font-size: 24px; }
+.size-5 h2 { font-size: 18px; }
+.size-6 h2 { font-size: 12px; }
+
+.tiles-header {
+  display: block;
+  padding: 16px;
+  color: #545b57;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  background-color: #1C201E;
+}
+
+.tiles-header:hover {
+  background-color: #323735;
+  color: #fff;
+  text-decoration: line-through;
+}
+.tiles-header:hover svg {
+  fill: #da8f52;
+}
+
+.tiles-header svg {
+  fill: #545b57;
+  float: right;
+}
+
+.tiles-header.step-2 { background-color: #232624; }
+.tiles-header.step-3 { background-color: #292d2b; }
+
+@keyframes tile-animation {
+  from {transform: scale(1, 1)}
+  to   {transform: scale(1.05, 1.05)}
+}

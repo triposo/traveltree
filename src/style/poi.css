@@ -1,0 +1,33 @@
+.poi {
+  width: 764px;
+  padding: 32px;
+  background-color: #fff;
+  text-align: left;
+  overflow-y: scroll;
+
+  position: absolute;
+  left: 50%;
+  top: 64px;
+  bottom: 64px;
+  margin-left: -382px;
+  z-index: 2;
+
+  transform: translate(0, -2000px);
+}
+
+.poi.shown {
+  opacity: 1;
+  animation: move-in 800ms ease 0ms 1 forwards;
+}
+
+.poi h1 {
+  margin-top: 0;
+  color: #2eac6d;
+}
+
+
+
+@keyframes move-in {
+  from {transform: translate(0, -2000px)}
+  to   {transform: translate(0, 0)}
+}
