@@ -46,7 +46,7 @@ export default class ActivityContainer extends React.Component {
         console.log("REJECTED: ", rejected)
       });
 
-    fetch(`http://testing.triposo.com/api/v0/tag.json?activity_id=${this.props.params.activityId}&fields=name,id,activity_id,snippet,score`)
+    fetch(`http://testing.triposo.com/api/v0/tag.json?location_id=${this.props.params.cityId}&id=${this.props.params.activityId}&fields=name,id,snippet,score`)
       .then(response => response.json())
       .then(json => {
         this.setState({activity: json.results[0]})
@@ -67,7 +67,7 @@ export default class ActivityContainer extends React.Component {
     }
   }
 
-  
+
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params.poiId) {

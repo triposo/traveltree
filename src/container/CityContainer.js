@@ -50,7 +50,7 @@ export default class CountryContainer extends React.Component {
         console.log("REJECTED: ", rejected)
       });
 
-    fetch(`http://testing.triposo.com/api/v0/tag.json?&location_id=${this.props.params.cityId}&count=15&order_by=-score&fields=name,id,activity_id,snippet,score`)
+    fetch(`http://testing.triposo.com/api/v0/tag.json?&location_id=${this.props.params.cityId}&count=15&order_by=-score&fields=name,id,snippet,score`)
       .then(response => response.json())
       .then(json => {
         this.setState({activities: json.results})
@@ -73,7 +73,7 @@ export default class CountryContainer extends React.Component {
         }
         <div className="tile-list">
           {this.state.activities
-            ? this.state.activities.map((activity, rank) => <Tile key={activity.id} title={activity.name} id={activity.activity_id} rank={rank} selectedTileId={this.state.selectedTileId} selectAction={this.selectTile} scale={calculateSize(rank+1, this.state.activities.length)} />)
+            ? this.state.activities.map((activity, rank) => <Tile key={activity.id} title={activity.name} id={activity.id} rank={rank} selectedTileId={this.state.selectedTileId} selectAction={this.selectTile} scale={calculateSize(rank+1, this.state.activities.length)} />)
             : ""
           }
         </div>
